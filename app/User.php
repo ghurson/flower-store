@@ -12,7 +12,7 @@ class User extends Authenticatable
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var arrat
      */
     protected $fillable = [
         'name', 'email', 'password',
@@ -32,7 +32,7 @@ class User extends Authenticatable
     }
 
     public function recipients(){
-      return $this->hasMany("App\Recipient");
+      return $this->hasMany("App\Recipient", 'user_id');
     }
 
 }

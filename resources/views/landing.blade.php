@@ -7,4 +7,5 @@
             <h1>The Flower Store</h1>
         </div>
     </div>
+
 @endsection

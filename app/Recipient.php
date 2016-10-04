@@ -7,4 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Recipient extends Model
 {
     //
+
+    protected $fillable = [
+      'user_id', 'name', 'address'
+    ];
+
+    public function user(){
+      return $this->belongsTo('App\User');
+    }
+
+    public function orders(){
+      return $this->hasMany("App\Order", "recipient_id");
+    }
 }

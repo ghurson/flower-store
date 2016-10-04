@@ -18,5 +18,11 @@ class RecipientTableSeeder extends Seeder
           'user_id' => 1
         ]);
 
+        App\Recipient::create([
+          'name' => 'Kate Hurson',
+          'address' => '641 Kent Oaks Way, Gaithersburg MD 20878',
+          'user_id' => 1
+        ]);
+
     }
 }
