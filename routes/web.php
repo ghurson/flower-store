@@ -34,3 +34,5 @@ Route::post("/recipient/create", "RecipientController@create");
 Route::get("/recipient/{recipient}", "RecipientController@display");
 Route::post("/recipient/update", "RecipientController@update");
 Route::get("/recipient/{recipient}/delete", "RecipientController@delete");
+
+Route::get('/admin/dashboard',"AdminController@dashboard");

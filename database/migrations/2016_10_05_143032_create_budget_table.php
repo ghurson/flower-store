@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrdersTable extends Migration
+class CreateBudgetTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+      Schema::create('budgets', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('low');
+            $table->integer('high');
             $table->string('title');
-            $table->string('delivery');
-            $table->integer('user_id');
-            $table->integer('recipient_id');
-            $table->integer('budget_id');
             $table->timestamps();
-        });
+      });
     }
 
     /**
@@ -31,6 +29,6 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::drop('budgets');
     }
 }

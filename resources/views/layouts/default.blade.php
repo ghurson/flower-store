@@ -19,22 +19,16 @@
   </head>
   <body>
 
-    <div class="top-menu">
+    @include('partials.components.top-menu')
 
-        <ul class='menu'>
-          <li><a href="/user/1">Dashboard</a></li>
-        </ul>
-    </div>
 
     <div class="main-container row">
-      <div class="row">
         @yield('content')
-      </div>
     </div>
 
       <!-- Scripts -->
       <script type="text/javascript" src='{{URL::asset('js/jquery.min.js')}}'></script>
       <script type="text/javascript" src='{{URL::asset('js/foundation.min.js')}}'></script>
-      <script src="/js/app.js"></script>
+      <script type="text/javascript" src="{{URL::asset('js/gh_app.js')}}"></script>
   </body>
 </html>

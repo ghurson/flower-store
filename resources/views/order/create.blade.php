@@ -14,14 +14,22 @@
         {{ csrf_field() }}
         <input type="text" name="title" placeholder='Name of your Order'>
         <input type="text" name="delivery" placeholder='Delivery Date'>
-        <input type="text" name="price" placeholder='Order Cost'>
         <input type="text" name="address" placeholder='Order Address'>
         <label for="recipient">Order Recipient</label>
-        <select  name="recipient">
+        <select  name="recipient_id">
           @foreach(\Auth::user()->recipients as $recipient)
             <option value="{{$recipient->id}}">{{$recipient->name}}</option>
           @endforeach
         </select>
+        <label for="budget">What's Your Budget?</label>
+
+        <select name="budget_id">
+          @foreach(\DB::table('budgets')->get() as $budget)
+            <option value="{{$budget->id}}">{{$budget->title}} (between {{$budget->low}} and {{$budget->high}})</option>
+          @endforeach
+        </select>
+
+
         <input type="submit" value="Order" class='button'>
       </form>
     </div>

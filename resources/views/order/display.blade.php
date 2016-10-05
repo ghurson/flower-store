@@ -26,11 +26,21 @@
         <h2>Update Your Order</h2>
         <form action="/order/update" method="post">
             {{ csrf_field() }}
-            <input type="text" name="id" value="{{$order->id}}">
+            <input type="hidden" name="id" value="{{$order->id}}">
             <input type="text" name="title" value="{{$order->title}}">
             <input type="text" name="delivery" value="{{$order->delivery}}">
-            <input type="text" name="price" value="{{$order->price}}">
-            <input type="text" name="recipient_id" value="{{$order->recipient_id}}">
+            <label for="budget_id">What's Your Budget?</label>
+            <select class="" name="budget_id">
+              @foreach(\DB::table('budgets')->get() as $budget)
+                <option value='{{$budget->id}}'>{{$budget->title}} (between {{$budget->low}} and {{$budget->high}})</option>
+              @endforeach
+            </select>
+            <label for="recipient_id">Who are the flowers for?</label>
+            <select class="" name="recipient_id">
+              @foreach(\Auth::user()->recipients as $recipient)
+                <option value='{{$recipient->id}}'>{{$recipient->name}}</option>
+              @endforeach
+            </select>
             <input type="submit" class='button expanded' value="Update">
         </form>
       </div>

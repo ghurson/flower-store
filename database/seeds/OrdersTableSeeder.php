@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class OrdersTableSeeder extends Seeder
 {
@@ -12,9 +13,9 @@ class OrdersTableSeeder extends Seeder
     public function run()
     {
       \App\Order::create([
-        'price' => 50,
+        'budget_id' => 1,
         'title' => 'Birthday Flowers',
-        'delivery' => '7/15/17',
+        'delivery' => new Carbon('7/5/17'),
         'user_id' => 1,
         'recipient_id' => 1
       ]);
